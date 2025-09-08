@@ -1,0 +1,20 @@
+# OS / editor
+*.swp
+.DS_Store
+*.tmp
+*.log
+
+# K8s / Flux
+.kube/
+.tmp/
+*.bak
+/secrets/*.yaml
+
+# Terraform (si algún día lo mezclas en el repo GitOps)
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Python cache (por si metes algo de scripts)
+__pycache__/
+*.py[cod]
