@@ -4,3 +4,6 @@ metadata:
   name: provider-aws-s3
 spec:
   package: xpkg.upbound.io/upbound/provider-aws-s3:v2.0.2
+  # aplicar si hay mezcla de registry de providers
+  # runtimeConfigRef:
+  #  name: provider-aws-s3-rc

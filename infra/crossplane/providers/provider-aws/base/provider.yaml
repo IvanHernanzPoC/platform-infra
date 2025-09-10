@@ -3,4 +3,5 @@ kind: Provider
 metadata:
   name: provider-aws
 spec:
-  package: xpkg.upbound.io/crossplane-contrib/provider-family-aws:v2.0.0
+  package: xpkg.upbound.io/upbound/provider-family-aws:v2.0.2
+  # package: xpkg.upbound.io/crossplane-contrib/provider-family-aws:v2.0.0 # el .2 por el error de list providersconfig
