@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 20m0s
-  path: ./infra/crossplane/tenants/managed-resources/aws/ivanHernanz/eu-west-1/team-frontend/s3-bucket-simple/base
+  path: ./infra/crossplane/tenants/managed-resources/aws/ivanHernanz/eu-west-1/team-1/s3-bucket-simple/base
   prune: true
   force: true
   wait: true
