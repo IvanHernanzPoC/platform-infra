@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   # - pre/ Activaria la soluion de SA + DRC para el erro de mezclar familias de providers
   - install.yaml
+  
