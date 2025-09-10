@@ -23,5 +23,4 @@ spec:
       infra_common_namespace: "infra"
   decryption:
     provider: sops
-    secretRef:
-      name: sops-gpg
+
