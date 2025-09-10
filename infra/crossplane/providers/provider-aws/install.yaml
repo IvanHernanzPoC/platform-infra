@@ -20,5 +20,5 @@ spec:
   healthChecks:
   - apiVersion: pkg.crossplane.io/v1
     kind: Provider
-    name: provider-aws
+    name: upbound-provider-family-aws
     namespace: crossplane-system
