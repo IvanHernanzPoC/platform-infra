@@ -1,7 +1,7 @@
 apiVersion: aws.m.upbound.io/v1beta1
 kind: ProviderConfig
 metadata:
-  name: aws-ivanHernanz
+  name: aws-ivanhernanz
   namespace: crossplane-system
 spec:
   credentials:
