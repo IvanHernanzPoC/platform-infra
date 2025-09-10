@@ -1,0 +1,24 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: team-frontend-s3-bucket
+  namespace: flux-system
+spec:
+  interval: 20m0s
+  path: ./infra/crossplane/tenants/managed-resources/aws/ivanHernanz/eu-west-1/team-frontend/s3-bucket-simple/base
+  prune: true
+  force: true
+  wait: true
+  timeout: 10m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  dependsOn:
+  - name: aws-providerconfig-ivanhernanz
+    namespace: flux-system
+  healthChecks:
+  - apiVersion: s3.aws.m.upbound.io/v1beta1
+    kind: Bucket
+    name: team-frontend-app-storage
+    namespace: team-frontend

@@ -1,0 +1,16 @@
+apiVersion: s3.aws.m.upbound.io/v1beta1
+kind: Bucket
+metadata:
+  name: team-frontend-app-storage
+  namespace: team-frontend
+spec:
+  forProvider:
+    region: eu-west-1
+    tags:
+      team: frontend
+      environment: dev
+      managed-by: crossplane
+      created-by: backstage
+  providerConfigRef:
+    name: aws-ivanhernanz    # ← Usa su ProviderConfig
+    kind: ProviderConfig     # ← Especifica el kind también

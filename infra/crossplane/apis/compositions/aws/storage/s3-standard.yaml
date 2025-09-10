@@ -1,0 +1,38 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: storage-aws-s3-standard
+  labels:
+    provider: aws
+    class: standard
+spec:
+  compositeTypeRef:
+    apiVersion: storage.platform.io/v1alpha1
+    kind: Bucket
+  patchSets:
+    - name: providerConfig
+      patches:
+        - fromFieldPath: "spec.providerConfigRef.name"
+          toFieldPath: "spec.providerConfigRef.name"
+  resources:
+    - name: s3bucket
+      base:
+        apiVersion: s3.aws.upbound.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: private
+          providerConfigRef:
+            name: ""     # se parchea
+      patches:
+        - type: PatchSet
+          patchSetName: providerConfig
+        - fromFieldPath: "spec.parameters.name"
+          toFieldPath: "metadata.name"
+        - fromFieldPath: "spec.parameters.versioning"
+          toFieldPath: "spec.forProvider.versioningConfiguration.status"
+          transforms:
+            - type: map
+              map:
+                "true": Enabled
+                "false": Suspended

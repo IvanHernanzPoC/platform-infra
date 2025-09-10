@@ -1,0 +1,73 @@
+apiVersion: apiextensions.crossplane.io/v2
+kind: CompositeResourceDefinition
+metadata:
+  name: xbuckets.storage.platform.io
+spec:
+  scope: Namespaced
+  group: storage.platform.io
+  names:
+    kind: XBucket
+    plural: xbuckets
+  claimNames:
+    kind: S3BucketClaim
+    plural: s3bucketclaims
+  versions:
+  - name: v1alpha1
+    served: true
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              # Parametros que pueden configurar los usuarios
+              environment:
+                type: string
+                description: "Environment (dev, staging, prod)"
+                enum: ["dev", "staging", "prod"]
+                default: "dev"
+              bucketName:
+                type: string
+                description: "Optional bucket name. If not provided, will be auto-generated"
+              encryption:
+                type: boolean
+                description: "Enable server-side encryption"
+                default: true
+              versioning:
+                type: boolean
+                description: "Enable versioning"
+                default: false
+              publicAccess:
+                type: boolean
+                description: "Allow public access (use with caution)"
+                default: false
+              tags:
+                type: object
+                description: "Additional tags for the bucket"
+                additionalProperties:
+                  type: string
+            required:
+            - environment
+          status:
+            type: object
+            properties:
+              # Outputs que recibirá el usuario
+              bucketName:
+                type: string
+                description: "Actual bucket name created"
+              bucketArn:
+                type: string
+                description: "ARN of the created bucket"
+              region:
+                type: string
+                description: "AWS region where bucket was created"
+              endpoint:
+                type: string
+                description: "S3 endpoint URL"
+  connectionSecretKeys:
+  - bucketName
+  - bucketArn
+  - region
+  - endpoint

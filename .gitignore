@@ -18,3 +18,6 @@
 # Python cache (por si metes algo de scripts)
 __pycache__/
 *.py[cod]
+
+# secrets
+secrets*/

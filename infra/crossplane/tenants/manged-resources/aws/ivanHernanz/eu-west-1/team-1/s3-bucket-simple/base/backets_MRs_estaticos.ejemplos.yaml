@@ -1,0 +1,70 @@
+# Bucket principal
+apiVersion: s3.aws.m.upbound.io/v1beta1
+kind: Bucket
+metadata:
+  name: team-frontend-app-storage
+  namespace: team-frontend
+  labels:
+    team: frontend
+spec:
+  forProvider:
+    region: eu-west-1
+    tags:
+      team: frontend
+      environment: dev
+      managed-by: crossplane
+      created-by: backstage
+  providerConfigRef:
+    name: aws-ivanhernanz
+    kind: ProviderConfig
+
+---
+# Encriptación del bucket
+apiVersion: s3.aws.m.upbound.io/v1beta1
+kind: BucketServerSideEncryptionConfiguration
+metadata:
+  name: team-frontend-app-storage-encryption
+  namespace: team-frontend
+spec:
+  forProvider:
+    bucket: team-frontend-app-storage
+    rule:
+    - applyServerSideEncryptionByDefault:
+        sseAlgorithm: AES256
+  providerConfigRef:
+    name: aws-ivanhernanz
+    kind: ProviderConfig
+
+---
+# Versionado del bucket
+apiVersion: s3.aws.m.upbound.io/v1beta1
+kind: BucketVersioning
+metadata:
+  name: team-frontend-app-storage-versioning
+  namespace: team-frontend
+spec:
+  forProvider:
+    bucket: team-frontend-app-storage
+    versioningConfiguration:
+    - status: Enabled
+  providerConfigRef:
+    name: aws-ivanhernanz
+    kind: ProviderConfig
+
+---
+# Bloquear acceso público
+apiVersion: s3.aws.m.upbound.io/v1beta1
+kind: BucketPublicAccessBlock
+metadata:
+  name: team-frontend-app-storage-public-block
+  namespace: team-frontend
+spec:
+  forProvider:
+    bucket: team-frontend-app-storage
+    blockPublicAcls: true
+    blockPublicPolicy: true
+    ignorePublicAcls: true
+    restrictPublicBuckets: true
+  providerConfigRef:
+    name: aws-ivanhernanz
+    kind: ProviderConfig
