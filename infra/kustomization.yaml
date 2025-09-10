@@ -5,4 +5,5 @@ resources:
   - crossplane/core/
   - crossplane/providers/
   - crossplane/providersconfig/
+  - crossplane/tenants/
   # - crossplane/apis/
