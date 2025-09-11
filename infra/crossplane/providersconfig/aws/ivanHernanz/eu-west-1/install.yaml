@@ -15,9 +15,10 @@ spec:
     kind: GitRepository
     name: flux-system
   healthChecks:
-    - apiVersion: aws.upbound.io/v1beta1
+    - apiVersion: aws.m.upbound.io/v1beta1
       kind: ProviderConfig
       name: aws-ivanhernanz
+      namespace: team-frontend
   dependsOn:
     - name: provider-aws-family
       namespace: flux-system

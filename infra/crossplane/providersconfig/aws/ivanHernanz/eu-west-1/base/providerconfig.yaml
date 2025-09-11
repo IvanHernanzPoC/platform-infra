@@ -1,12 +1,12 @@
-apiVersion: aws.upbound.io/v1beta1
+apiVersion: aws.m.upbound.io/v1beta1
 kind: ProviderConfig
 metadata:
   name: aws-ivanhernanz
-  # namespace: crossplane-system # debe estar en el mismo namespce si usasamos scope namespaced y el secreto tambien
+  namespace: team-frontend            # <- OBLIGATORIO (namespaced)
 spec:
   credentials:
     source: Secret
     secretRef:
-      namespace: crossplane-system #cambiar ek namespcae al del Namespaced
+      namespace: team-frontend #cambiar ek namespcae al del Namespaced
       name: aws-secret-ivanhernanz
       key: creds
