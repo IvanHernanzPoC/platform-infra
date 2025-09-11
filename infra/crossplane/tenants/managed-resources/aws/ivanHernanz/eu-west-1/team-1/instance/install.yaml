@@ -1,0 +1,21 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: team-frontend-ec2-instance
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: ./infra/crossplane/tenants/managed-resources/aws/ivanHernanz/eu-west-1/team-1/instance/base
+  prune: true
+  wait: true
+  timeout: 15m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  dependsOn:
+    - name: aws-providerconfig-ivanhernanz
+  healthChecks:
+    - apiVersion: ec2.aws.m.upbound.io/v1beta1
+      kind: Instance
+      name: team-frontend-app-vm
+      namespace: team-frontend

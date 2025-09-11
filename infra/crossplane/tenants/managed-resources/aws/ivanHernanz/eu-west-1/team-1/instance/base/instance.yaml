@@ -1,0 +1,20 @@
+apiVersion: ec2.aws.m.upbound.io/v1beta1
+kind: Instance
+metadata:
+  name: team-frontend-app-vm
+  namespace: team-frontend
+spec:
+  forProvider:
+    region: eu-west-1
+    ami: ami-0c1c30571d2dae5c9        # EJEMPLO: Ubuntu 22.04 en eu-west-1 (sustituye si quieres)
+    instanceType: t3.micro
+    subnetId: subnet-018feda8c7e02c9f6         # <-- TU SUBNET ID
+    vpcSecurityGroupIds:
+      - sg-0ffae991a53918686                   # <-- TU SG ID
+    associatePublicIpAddress: true    # si está en subnet pública
+    tags:
+      Team: frontend
+      Environment: dev
+  providerConfigRef:
+    name: aws-ivanhernanz
+    kind: ProviderConfig
