@@ -18,9 +18,8 @@ spec:
     - apiVersion: aws.upbound.io/v1beta1
       kind: ProviderConfig
       name: aws-ivanhernanz
-      namespace: team-frontend
   dependsOn:
-    - name: provider-aws
+    - name: provider-aws-family
       namespace: flux-system
 
 
