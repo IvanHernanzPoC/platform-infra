@@ -21,7 +21,7 @@ spec:
       namespace: team-frontend
   dependsOn:
     - name: provider-aws
-      namespace: team-frontend
+      namespace: flux-system
 
 
   
