@@ -10,12 +10,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: bind-s3-sa-to-aws-m-providerconfigs
+  name: bind-sa-to-aws-m-providerconfigs
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: allow-aws-m-providerconfigs
 subjects:
 - kind: ServiceAccount
-  name: provider-aws-s3-sa
+  name: provider-aws-runtime
   namespace: crossplane-system

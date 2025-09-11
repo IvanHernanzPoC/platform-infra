@@ -2,6 +2,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  # - pre/ Activaria la soluion de SA + DRC para el erro de mezclar familias de providers
+  - pre/  # Activaria la soluion de SA + DRC para el erro de mezclar familias de providers
   - install.yaml
-  
