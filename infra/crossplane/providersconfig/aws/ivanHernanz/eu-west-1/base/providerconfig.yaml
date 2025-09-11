@@ -1,5 +1,5 @@
 apiVersion: aws.upbound.io/v1beta1
-kind: ClusterProviderConfig
+kind: ProviderConfig
 metadata:
   name: aws-ivanhernanz
   # namespace: crossplane-system # debe estar en el mismo namespce si usasamos scope namespaced y el secreto tambien
