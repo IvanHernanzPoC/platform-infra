@@ -16,7 +16,6 @@ spec:
     name: flux-system
   dependsOn:
   - name: aws-providerconfig-ivanhernanz
-    namespace: flux-system
   healthChecks:
   - apiVersion: s3.aws.m.upbound.io/v1beta1
     kind: Bucket
