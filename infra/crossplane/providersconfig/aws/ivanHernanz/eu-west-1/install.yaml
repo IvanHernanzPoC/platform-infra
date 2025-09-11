@@ -20,7 +20,7 @@ spec:
       name: aws-ivanhernanz
       namespace: team-frontend
   dependsOn:
-    - name: provider-aws
+    - name: provider-aws-runtime
       namespace: flux-system
 
 
