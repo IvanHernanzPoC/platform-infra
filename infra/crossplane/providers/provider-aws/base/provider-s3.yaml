@@ -4,6 +4,6 @@ metadata:
   name: provider-aws-s3
 spec:
   package: xpkg.upbound.io/upbound/provider-aws-s3:v2
-  skipDependencyResolution: true
+  # skipDependencyResolution: true
   runtimeConfigRef:
     name: aws-provider-runtime
