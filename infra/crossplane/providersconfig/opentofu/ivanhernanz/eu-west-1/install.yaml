@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  path: ./infra/crossplane/providersconfig/opentofu/ivanHernanz/eu-west-1/base
+  path: ./infra/crossplane/providersconfig/opentofu/ivanhernanz/eu-west-1/base
   prune: true
   force: true
   wait: true
@@ -14,9 +14,9 @@ spec:
     kind: GitRepository
     namespace: flux-system
   healthChecks:
-    - apiVersion: pkg.crossplane.io/v1
-      kind: Provider
-      name: upbound-provider-opentofu
+    - apiVersion: opentofu.upbound.io/v1beta1
+      kind: ProviderConfig
+      name: opentofu-providerconfig-ivanhernanz
       namespace: team-frontend
   dependsOn:
     - name: crossplane-provider-opentofu   # el Kustomization que instala el Provider

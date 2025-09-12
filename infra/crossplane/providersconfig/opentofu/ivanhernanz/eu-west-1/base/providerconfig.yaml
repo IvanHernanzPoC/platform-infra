@@ -1,7 +1,7 @@
 apiVersion: opentofu.upbound.io/v1beta1
 kind: ProviderConfig
 metadata:
-  name: opentofu-ivanhernanz-eu-west-1
+  name: opentofu-providerconfig-ivanhernanz
   namespace: team-frontend
 spec:
   # Hoy: sin StoreConfig Kubernetes (ver punto 2). El estado lo pondremos en S3
