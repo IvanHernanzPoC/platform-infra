@@ -7,8 +7,9 @@ spec:
   # Hoy: sin StoreConfig Kubernetes (ver punto 2). El estado lo pondremos en S3
   # dentro de cada módulo (backend "s3").
   credentials:
-    - source: Secret
-      secretRef:
-        namespace: team-frontend
-        name: aws-secret-ivanHernanz   # el que ya usas para AWS
-        key: creds                     # se ha de usar como var de env y no se si puedo 
+  - filename: aws-creds.ini
+    source: Secret
+    secretRef:
+      namespace: team-frontend
+      name: aws-secret-ivanHernanz   # el que ya usas para AWS
+      key: creds                     # se ha de usar como var de env y no se si puedo 

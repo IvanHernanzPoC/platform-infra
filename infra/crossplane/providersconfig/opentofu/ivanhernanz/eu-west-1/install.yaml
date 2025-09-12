@@ -19,5 +19,5 @@ spec:
       name: opentofu-providerconfig-ivanhernanz
       namespace: team-frontend
   dependsOn:
-    - name: crossplane-provider-opentofu   # el Kustomization que instala el Provider
+    - name: crossplane-provider-opentofu
       namespace: flux-system
